@@ -71,7 +71,7 @@ export const AppLogo: React.FC<AppLogoProps> = ({
               Euro Housing Data
             </span>
           </div>
-          <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wide mt-0.5">
+          <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wide mt-0.5 hidden sm:inline">
             Observatoire Immobilier & Inflation · UE
           </span>
         </div>

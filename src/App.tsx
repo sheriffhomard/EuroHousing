@@ -11,6 +11,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ComparePage } from './pages/ComparePage';
 import { DataPage } from './pages/DataPage';
 import { MethodologyPage } from './pages/MethodologyPage';
+import { AffordabilityPage } from './pages/AffordabilityPage';
 import { SystemSettingsModal } from './components/Settings/SystemSettingsModal';
 import { OnboardingModal } from './components/Onboarding/OnboardingModal';
 import { ContextualHelpModal } from './components/Common/ContextualHelpModal';
@@ -19,7 +20,7 @@ import { useSystemUpdate } from './hooks/useSystemUpdate';
 import { AlertCircle, CheckCircle, X, Sparkles } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'compare' | 'data' | 'methodology'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology'>('dashboard');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
@@ -28,6 +29,7 @@ export default function App() {
     selectedCountry,
     setSelectedCountry,
     comparisonCountries,
+    setComparisonCountries,
     toggleComparisonCountry,
     startPeriod,
     setStartPeriod,
@@ -171,6 +173,7 @@ export default function App() {
             seriesMap={comparisonSeries}
             comparisonCountries={comparisonCountries}
             onToggleCountry={toggleComparisonCountry}
+            onSetCountries={setComparisonCountries}
             startPeriod={startPeriod}
             endPeriod={endPeriod}
             availablePeriods={allAvailablePeriods}
@@ -182,6 +185,8 @@ export default function App() {
             onRebaseModeChange={setRebaseMode}
           />
         )}
+
+        {activeTab === 'affordability' && <AffordabilityPage />}
 
         {activeTab === 'data' && (
           <DataPage

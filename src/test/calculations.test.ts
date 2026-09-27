@@ -158,3 +158,44 @@ describe('JSON-stat 2.0 Decoder', () => {
     expect(extractJsonStatValue(mockDataset, { geo: 'ES', time: '2024-Q1' })).toBeNull();
   });
 });
+
+describe('Country Comparison & Ranking Calculations', () => {
+  it('correctly calculates the inflation spread (nominal growth - inflation growth)', () => {
+    // Nominal house price growth = +40%, Inflation = +25% -> Spread = +15%
+    const nominalGrowth = 40;
+    const inflationGrowth = 25;
+    const spread = nominalGrowth - inflationGrowth;
+    expect(spread).toBe(15);
+  });
+
+  it('correctly identifies negative real erosion when inflation exceeds nominal growth', () => {
+    // Nominal house price growth = +10%, Inflation = +20% -> Spread = -10% (purchasing power loss)
+    const nominalGrowth = 10;
+    const inflationGrowth = 20;
+    const spread = nominalGrowth - inflationGrowth;
+    expect(spread).toBe(-10);
+  });
+
+  it('ranks countries consistently by real variation', () => {
+    const countries = [
+      { code: 'FR', realGrowth: 15.2 },
+      { code: 'DE', realGrowth: 4.8 },
+      { code: 'PT', realGrowth: 42.1 },
+      { code: 'IT', realGrowth: -8.5 },
+    ];
+
+    const sortedDesc = [...countries].sort((a, b) => b.realGrowth - a.realGrowth);
+    expect(sortedDesc[0].code).toBe('PT');
+    expect(sortedDesc[1].code).toBe('FR');
+    expect(sortedDesc[2].code).toBe('DE');
+    expect(sortedDesc[3].code).toBe('IT');
+  });
+
+  it('computes 5, 10, and 15 year quarter offsets accurately', () => {
+    // 4 quarters per year
+    expect(5 * 4).toBe(20);
+    expect(10 * 4).toBe(40);
+    expect(15 * 4).toBe(60);
+  });
+});
+

@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { X, BookOpen, Calculator, Home, ShoppingCart, Scale, Sliders, ArrowRight } from 'lucide-react';
+import { X, BookOpen, Calculator, Home, ShoppingCart, Scale, Sliders, ArrowRight, Coins, Percent } from 'lucide-react';
 
 interface ContextualHelpModalProps {
   isOpen: boolean;
@@ -47,6 +47,20 @@ export const ContextualHelpModal: React.FC<ContextualHelpModalProps> = ({
       subtitle: 'Base 2015, Base 2010 ou Début de Période',
       content:
         "Permet de réinitialiser instantanément l'indice de référence à 100 à une date clé. Cela facilite la comparaison directe entre pays et entre indicateurs sans altérer les données sources officielles d'Eurostat.",
+    },
+    {
+      icon: <Coins className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
+      title: 'Price-to-Income Ratio (PIR)',
+      subtitle: 'Ratio Prix des Logements / Revenus des Ménages',
+      content:
+        "Indicateur d'accessibilité fondamental (OCDE / Eurostat). Il rapporte l'indice des prix d'acquisition au revenu disponible brut des ménages. Un ratio au-dessus de 100 signale que le logement s'éloigne du pouvoir d'achat des résidents.",
+    },
+    {
+      icon: <Percent className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+      title: 'Taux de Crédit & Capacité d’Emprunt',
+      subtitle: 'Statistiques BCE MIR & Règle des 35% HCSF',
+      content:
+        "Chaque hausse de 1% des taux d'intérêt réduit le capital empruntable d'environ 8% à 10% pour une mensualité donnée. La règle prudentielle européenne recommande un taux d'effort ne dépassant pas 35% des revenus nets.",
     },
   ];
 

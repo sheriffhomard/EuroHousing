@@ -10,7 +10,7 @@ import { AppLogo } from '../Common/AppLogo';
 interface OnboardingModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onNavigateTab?: (tab: 'dashboard' | 'compare' | 'data' | 'methodology') => void;
+  onNavigateTab?: (tab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology') => void;
 }
 
 export const OnboardingModal: React.FC<OnboardingModalProps> = ({

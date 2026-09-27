@@ -12,8 +12,8 @@ import { AppLogo } from '../Common/AppLogo';
 import { SystemUpdateState } from '../../hooks/useSystemUpdate';
 
 interface HeaderProps {
-  activeTab: 'dashboard' | 'compare' | 'data' | 'methodology';
-  setActiveTab: (tab: 'dashboard' | 'compare' | 'data' | 'methodology') => void;
+  activeTab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology';
+  setActiveTab: (tab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology') => void;
   isRefreshing: boolean;
   onRefresh: () => void;
   lastUpdated: string;
@@ -77,6 +77,16 @@ export const Header: React.FC<HeaderProps> = ({
             Comparateur
           </button>
           <button
+            onClick={() => setActiveTab('affordability')}
+            className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              activeTab === 'affordability'
+                ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            Accessibilité & Crédit
+          </button>
+          <button
             onClick={() => setActiveTab('data')}
             className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
               activeTab === 'data'
@@ -114,10 +124,10 @@ export const Header: React.FC<HeaderProps> = ({
 
           <PWAInstallButton />
 
-          {/* Contextual Help trigger */}
+          {/* Contextual Help trigger (Desktop/Tablet) */}
           <button
             onClick={onOpenHelp}
-            className="p-2 rounded-lg text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+            className="hidden md:flex p-2 rounded-lg text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
             title="Aide contextuelle & Glossaire"
           >
             <HelpCircle className="w-4 h-4" />
@@ -133,10 +143,10 @@ export const Header: React.FC<HeaderProps> = ({
             <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin text-blue-600' : ''}`} />
           </button>
 
-          {/* System Settings button */}
+          {/* System Settings button (Desktop/Tablet) */}
           <button
             onClick={onOpenSettings}
-            className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer relative"
+            className="hidden sm:flex p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer relative"
             title="Paramètres système & Mises à jour"
           >
             <Settings className="w-4 h-4" />

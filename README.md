@@ -59,7 +59,33 @@ L'application comprend un centre de contrôle système accessible depuis le menu
 
 ---
 
-## 📐 3. Méthodologie Statistique & Formules
+## 🌍 3. Comparateur Multi-Pays Avancé & Classement Européen
+
+L'application intègre un **comparateur macroéconomique complet** permettant d'analyser et de classer finement les trajectoires immobilières :
+
+* **Sélection Multiple & Union Européenne** :
+  * Préréglages thématiques instantanés : *🇪🇺 UE & Principaux*, *Top 5 Économies*, *Europe du Sud*, *Ouest & Nord*, *Centrale & Est*.
+  * Intégration des agrégats officiels Eurostat : **🇪🇺 Union Européenne (UE-27)** et **Zone Euro (EA-20)**.
+  * Recherche textuelle dynamique pour filtrer instantanément parmi plus de 30 pays européens.
+* **Horizons Temporels Prédéfinis & Personnalisés** :
+  * Boutons rapides : **5 ans**, **10 ans**, **15 ans**, **Depuis 2010 (Max)**.
+  * Sélecteur de période personnalisée avec bornes précises au trimestre près ($Q1\ 2010 \rightarrow Q3\ 2025+$).
+* **Comparaison Prix Nominaux vs Prix Corrigés de l'Inflation** :
+  * Bascule d'indicateurs : **HPI Nominal** (prix bruts du marché), **HPI Réel** (pouvoir d'achat net corrigé de l'inflation), **Inflation (HICP)** et **Écart Nominal vs Réel**.
+  * Rebasification dynamique : *Base 100 Eurostat (2015)*, *Origine (2010)* ou *Début de période choisie*.
+* **Classement des Pays (Leaderboard & Podium)** :
+  * Tri paramétrable selon la variation réelle, nominale, l'inflation cumulée ou le dernier niveau d'indice.
+  * Podium interactif avec médailles d'or 🥇, d'argent 🥈 et de bronze 🥉 pour les meilleures performances.
+  * Jauges horizontales de performance visuelle et benchmark automatique par rapport à la moyenne de l'Union Européenne (UE-27).
+* **Gestion de l'Ordre des Courbes & Exclusion** :
+  * Réordonnancement dynamique des courbes ($\blacktriangle$ / $\blacktriangledown$) permettant de placer n'importe quel pays au premier plan du graphique SVG.
+  * Masquage temporaire (icône œil 👁️) pour épurer le graphique sans supprimer les données du tableau comparatif.
+  * Exclusion d'un pays en un clic (bouton $\times$) sur les badges, la légende ou le classement.
+  * Survol synchronisé : met en valeur la courbe sélectionnée en estompant les autres.
+
+---
+
+## 📐 4. Méthodologie Statistique & Formules
 
 ### 3.1 Indice Immobilier Réel (Real HPI)
 
@@ -78,7 +104,7 @@ $$\text{HICP}_{Q_n} = \frac{\text{HICP}_{M_1} + \text{HICP}_{M_2} + \text{HICP}_
 
 ---
 
-## 🏗️ 4. Architecture Technique
+## 🏗️ 5. Architecture Technique
 
 ```text
 Eurostat REST API (ec.europa.eu)
@@ -118,7 +144,12 @@ Application State (src/hooks/)
 React UI (src/pages/ & src/components/)
   ├── Header & HamburgerMenu (Navigation catégorisée)
   ├── Observatoire (Dashboard avec barres cumulées & segmentation)
-  ├── Comparateur (Superposition interactive multi-pays)
+  ├── Comparateur Avancé (Filtres, horizons 5/10/15 ans, courbes réordonnables)
+  │     ├── CountryMultiSelect (Sélection multiple, filtres thématiques, UE-27)
+  │     ├── PeriodPresetsBar (5 ans, 10 ans, 15 ans, Depuis 2010, Personnalisé)
+  │     ├── ComparisonChart (Graphique SVG interactif, survol, couches z-index)
+  │     ├── CurveOrderManager (Changement d'ordre des courbes, visibilité, exclusion)
+  │     └── CountryRankingSection (Leaderboard triable, podium 🥇🥈🥉, benchmark UE)
   ├── Données & Export (Table triable, CSV, JSON)
   ├── Méthodologie (Documentation & sources)
   ├── SystemSettingsModal (Paramètres & mises à jour)
@@ -128,7 +159,7 @@ React UI (src/pages/ & src/components/)
 
 ---
 
-## 🚀 5. Installation et Démarrage
+## 🚀 6. Installation et Démarrage
 
 ### Prérequis
 - Node.js >= 18
@@ -157,7 +188,7 @@ npm test
 
 ---
 
-## 📊 6. Datasets Eurostat Utilisés
+## 📊 7. Datasets Eurostat Utilisés
 
 | Indicateur | Code Dataset | Fréquence | Dimensions Requêtées |
 |---|---|---|---|
@@ -166,7 +197,7 @@ npm test
 
 ---
 
-## 📱 7. Support PWA & Fonctionnement Hors-Ligne
+## 📱 8. Support PWA & Fonctionnement Hors-Ligne
 
 - **Installation sur Bureau** : compatible Google Chrome, Microsoft Edge, Brave.
 - **Installation sur Mobile** : Android (prompt PWA) et iOS Safari (via « Sur l'écran d'accueil » avec guide intégré).
