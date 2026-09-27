@@ -6,6 +6,7 @@
 import React from 'react';
 import { TrendingUp, TrendingDown, Minus, Home, ShoppingCart, Scale } from 'lucide-react';
 import { CountryTimeSeries } from '../../data/types';
+import { Tooltip } from '../Common/Tooltip';
 
 interface StatCardsGridProps {
   series: CountryTimeSeries;
@@ -70,6 +71,10 @@ export const StatCardsGrid: React.FC<StatCardsGridProps> = ({ series }) => {
           <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
             <Home className="w-3.5 h-3.5 text-blue-600" />
             <span>Prix Immobiliers (HPI)</span>
+            <Tooltip
+              title="Indice des Prix des Logements"
+              content="Mesure trimestrielle officielle Eurostat (prc_hpi_q) couvrant toutes les transactions de logements résidentiels neufs et anciens acquis par les ménages."
+            />
           </span>
           <span className="text-[11px] font-mono text-slate-500">
             {latest?.period ?? '—'}
@@ -101,6 +106,10 @@ export const StatCardsGrid: React.FC<StatCardsGridProps> = ({ series }) => {
           <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
             <ShoppingCart className="w-3.5 h-3.5 text-amber-500" />
             <span>Inflation (HICP)</span>
+            <Tooltip
+              title="Indice des Prix à la Consommation (IPCH / HICP)"
+              content="Mesure officielle Eurostat de l'inflation d'ensemble (prc_hicp_midx, COICOP CP00). L'indice trimestriel est calculé comme la moyenne arithmétique des 3 mois civils du trimestre."
+            />
           </span>
           <span className="text-[11px] font-mono text-slate-500">
             {latest?.period ?? '—'}
@@ -132,6 +141,10 @@ export const StatCardsGrid: React.FC<StatCardsGridProps> = ({ series }) => {
           <span className="text-xs font-semibold text-blue-700 dark:text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
             <Scale className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
             <span>HPI Réel (Corrigé Inflation)</span>
+            <Tooltip
+              title="Indice Immobilier Réel"
+              content="Calcul : (HPI nominal / HICP) × 100. Neutralise l'inflation pour mesurer la variation réelle de valeur patrimoniale. Une valeur > 100 signifie que l'immobilier a augmenté plus vite que le coût de la vie."
+            />
           </span>
           <span className="text-[11px] font-mono text-slate-500">
             {latest?.period ?? '—'}

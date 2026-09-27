@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" fill="none">
+  <defs>
+    <linearGradient id="bgLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+    <linearGradient id="chartHpi" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="realCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <filter id="shadowBox" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- App Window Background -->
+  <rect width="1000" height="620" rx="16" fill="url(#bgLight)" />
+  <rect width="998" height="618" x="1" y="1" rx="15" stroke="#cbd5e1" stroke-width="1.5" />
+
+  <!-- Top Navigation Header -->
+  <rect width="1000" height="56" fill="#ffffff" />
+  <line x1="0" y1="56" x2="1000" y2="56" stroke="#e2e8f0" stroke-width="1" />
+
+  <!-- Logo in Header -->
+  <rect x="24" y="14" width="30" height="30" rx="8" fill="#2563eb" />
+  <path d="M31 31 L39 22 L47 31" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" />
+  <text x="62" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0f172a">Euro Housing Data</text>
+  <text x="195" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">· Observatoire Eurostat</text>
+
+  <!-- Nav Tabs -->
+  <rect x="360" y="14" width="95" height="28" rx="6" fill="#eff6ff" />
+  <text x="375" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#2563eb">Observatoire</text>
+
+  <text x="475" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#64748b">Comparateur</text>
+  <text x="575" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#64748b">Données &amp; Export</text>
+  <text x="695" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#64748b">Méthodologie</text>
+
+  <!-- Right Actions: Status Badge, Refresh, Settings & Hamburger Menu -->
+  <rect x="800" y="14" width="70" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+  <text x="812" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#475569">⚙️ Système</text>
+
+  <rect x="880" y="14" width="96" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1" />
+  <line x1="892" y1="23" x2="904" y2="23" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
+  <line x1="892" y1="28" x2="904" y2="28" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
+  <line x1="892" y1="33" x2="904" y2="33" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
+  <text x="914" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a">Menu ▾</text>
+
+  <!-- Filter & Period Bar -->
+  <rect x="24" y="74" width="952" height="60" rx="10" fill="#ffffff" filter="url(#shadowBox)" />
+  <rect x="24" y="74" width="952" height="60" rx="10" stroke="#e2e8f0" stroke-width="1" />
+
+  <text x="44" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#64748b">PAYS SÉLECTIONNÉ</text>
+  <rect x="44" y="99" width="160" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+  <text x="56" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#0f172a">🇫🇷 France (FR)</text>
+
+  <text x="230" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#64748b">PÉRIODE D'ANALYSE</text>
+  <rect x="230" y="99" width="220" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+  <text x="242" y="116" font-family="monospace" font-size="11" font-weight="600" fill="#0f172a">2010-Q1 → 2025-Q3</text>
+
+  <text x="475" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#64748b">INDICATEUR PRINCIPAL</text>
+  <rect x="475" y="99" width="240" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+  <text x="487" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#0f172a">HPI vs Inflation (Vue comparée)</text>
+
+  <text x="740" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#64748b">BASE 100</text>
+  <rect x="740" y="99" width="130" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+  <text x="752" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#0f172a">2015 = 100</text>
+
+  <!-- 3 KPI Cards -->
+  <!-- Card 1: HPI Nominal -->
+  <rect x="24" y="148" width="300" height="110" rx="10" fill="#ffffff" filter="url(#shadowBox)" />
+  <rect x="24" y="148" width="300" height="110" rx="10" stroke="#e2e8f0" stroke-width="1" />
+  <text x="44" y="174" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#2563eb">🏠 PRIX IMMOBILIERS (HPI)</text>
+  <text x="270" y="174" font-family="monospace" font-size="10" fill="#64748b">2025-Q3</text>
+  <text x="44" y="212" font-family="monospace" font-size="28" font-weight="700" fill="#0f172a">128.5</text>
+  <text x="130" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">indice base 2015</text>
+  <line x1="44" y1="228" x2="304" y2="228" stroke="#f1f5f9" stroke-width="1" />
+  <text x="44" y="246" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Croissance depuis 2010 :</text>
+  <text x="246" y="246" font-family="monospace" font-size="11" font-weight="700" fill="#059669">+32.9%</text>
+
+  <!-- Card 2: Inflation HICP -->
+  <rect x="350" y="148" width="300" height="110" rx="10" fill="#ffffff" filter="url(#shadowBox)" />
+  <rect x="350" y="148" width="300" height="110" rx="10" stroke="#e2e8f0" stroke-width="1" />
+  <text x="370" y="174" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#d97706">🛒 INFLATION (HICP)</text>
+  <text x="596" y="174" font-family="monospace" font-size="10" fill="#64748b">2025-Q3</text>
+  <text x="370" y="212" font-family="monospace" font-size="28" font-weight="700" fill="#0f172a">124.9</text>
+  <text x="456" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">indice base 2015</text>
+  <line x1="370" y1="228" x2="630" y2="228" stroke="#f1f5f9" stroke-width="1" />
+  <text x="370" y="246" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Inflation depuis 2010 :</text>
+  <text x="572" y="246" font-family="monospace" font-size="11" font-weight="700" fill="#d97706">+33.8%</text>
+
+  <!-- Card 3: Real HPI -->
+  <rect x="676" y="148" width="300" height="110" rx="10" fill="url(#realCardGrad)" filter="url(#shadowBox)" />
+  <rect x="676" y="148" width="300" height="110" rx="10" stroke="#bfdbfe" stroke-width="1.5" />
+  <text x="696" y="174" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1d4ed8">⚖️ HPI RÉEL (CORRIGÉ INFLATION)</text>
+  <text x="922" y="174" font-family="monospace" font-size="10" fill="#64748b">2025-Q3</text>
+  <text x="696" y="212" font-family="monospace" font-size="28" font-weight="700" fill="#0f172a">102.9</text>
+  <text x="782" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">indice réel net</text>
+  <line x1="696" y1="228" x2="956" y2="228" stroke="#e0f2fe" stroke-width="1" />
+  <text x="696" y="246" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#1e40af">Évolution nette réelle :</text>
+  <text x="906" y="246" font-family="monospace" font-size="11" font-weight="700" fill="#059669">+2.9%</text>
+
+  <!-- Interactive Time Series Chart Container -->
+  <rect x="24" y="272" width="952" height="326" rx="12" fill="#ffffff" filter="url(#shadowBox)" />
+  <rect x="24" y="272" width="952" height="326" rx="12" stroke="#e2e8f0" stroke-width="1" />
+
+  <!-- Chart Header -->
+  <text x="48" y="302" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0f172a">Évolution Temporelle — France 🇫🇷</text>
+  <text x="48" y="318" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" fill="#64748b">Séries trimestrielles Eurostat : HPI Nominal, Inflation HICP &amp; HPI Réel</text>
+
+  <!-- Chart Legend Badges -->
+  <circle cx="680" cy="308" r="5" fill="#2563eb" />
+  <text x="692" y="312" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">HPI Nominal</text>
+
+  <circle cx="790" cy="308" r="5" fill="#f59e0b" />
+  <text x="802" y="312" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">Inflation HICP</text>
+
+  <circle cx="900" cy="308" r="5" fill="#059669" />
+  <text x="912" y="312" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">HPI Réel</text>
+
+  <!-- Chart Grid Lines -->
+  <line x1="70" y1="360" x2="930" y2="360" stroke="#f1f5f9" stroke-width="1" />
+  <text x="56" y="364" font-family="monospace" font-size="10" fill="#94a3b8">130</text>
+
+  <line x1="70" y1="410" x2="930" y2="410" stroke="#f1f5f9" stroke-width="1" />
+  <text x="56" y="414" font-family="monospace" font-size="10" fill="#94a3b8">115</text>
+
+  <!-- Base 100 Reference Line -->
+  <line x1="70" y1="460" x2="930" y2="460" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" />
+  <text x="56" y="464" font-family="monospace" font-size="10" font-weight="700" fill="#475569">100</text>
+  <text x="934" y="464" font-family="monospace" font-size="9" font-weight="600" fill="#94a3b8">BASE 100</text>
+
+  <line x1="70" y1="510" x2="930" y2="510" stroke="#f1f5f9" stroke-width="1" />
+  <text x="56" y="514" font-family="monospace" font-size="10" fill="#94a3b8">85</text>
+
+  <!-- Shaded Area Chart Under Real HPI -->
+  <path d="M 90 470 L 210 472 L 330 460 L 450 458 L 570 420 L 690 395 L 810 420 L 910 452 L 910 540 L 90 540 Z" fill="url(#chartHpi)" opacity="0.3" />
+
+  <!-- Curve 1: HPI Nominal (Blue line) -->
+  <path d="M 90 475 Q 210 480 330 465 T 570 410 T 690 355 T 810 380 T 910 365" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Curve 2: HICP Inflation (Amber dashed line) -->
+  <path d="M 90 485 Q 210 480 330 475 T 570 465 T 690 440 T 810 385 T 910 376" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Curve 3: Real HPI (Emerald line) -->
+  <path d="M 90 470 Q 210 472 330 460 T 570 420 T 690 395 T 810 420 T 910 452" fill="none" stroke="#059669" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Data point dot -->
+  <circle cx="910" cy="365" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="2" />
+  <circle cx="910" cy="376" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="2" />
+  <circle cx="910" cy="452" r="4.5" fill="#059669" stroke="#ffffff" stroke-width="2" />
+
+  <!-- X Axis Timeline Labels -->
+  <text x="90" y="565" font-family="monospace" font-size="10" fill="#64748b">2010-Q1</text>
+  <text x="250" y="565" font-family="monospace" font-size="10" fill="#64748b">2013-Q1</text>
+  <text x="410" y="565" font-family="monospace" font-size="10" fill="#64748b">2016-Q1</text>
+  <text x="570" y="565" font-family="monospace" font-size="10" fill="#64748b">2019-Q1</text>
+  <text x="730" y="565" font-family="monospace" font-size="10" fill="#64748b">2022-Q1</text>
+  <text x="890" y="565" font-family="monospace" font-size="10" font-weight="700" fill="#0f172a">2025-Q3</text>
+</svg>

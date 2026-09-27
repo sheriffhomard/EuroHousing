@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- Rounded Emblem Background with European Royal Blue Gradient -->
+  <defs>
+    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+
+  <rect x="6" y="6" width="48" height="48" rx="12" fill="url(#logoBg)" />
+  <rect x="6" y="6" width="48" height="48" rx="12" stroke="#3b82f6" stroke-width="1.5" fill="none" opacity="0.4" />
+
+  <!-- Stylized Roofline & Ascending Trendline -->
+  <path d="M18 34 L30 22 L42 34" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Euro symbol -->
+  <path d="M33 27 C32.2 26.3 31.1 25.9 29.9 25.9 C27.4 25.9 25.4 27.8 25.1 30.3 M23 29.5 H32 M23 32.5 H31 M25.1 31.7 C25.4 34.2 27.4 36.1 29.9 36.1 C31.1 36.1 32.2 35.7 33 35" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  
+  <!-- European Golden Star Sparkle -->
+  <circle cx="40" cy="20" r="2.2" fill="#fbbf24" />
+
+  <!-- Wordmark Text -->
+  <text x="66" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#0f172a" letter-spacing="-0.3">Euro Housing</text>
+  <text x="175" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#2563eb" letter-spacing="-0.3">Data</text>
+  <text x="66" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="600" fill="#64748b" letter-spacing="0.2">OBSERVATOIRE IMMOBILIER &amp; INFLATION · UE</text>
+</svg>

@@ -8,6 +8,7 @@ import { Home, Layers, TrendingUp, SlidersHorizontal } from 'lucide-react';
 import { DwellingType, IndicatorMode, RebaseMode } from '../../data/types';
 import { CountrySelector } from '../CountrySelector/CountrySelector';
 import { PeriodSlider } from '../PeriodSelector/PeriodSlider';
+import { Tooltip } from '../Common/Tooltip';
 
 interface FilterToolbarProps {
   selectedCountry: string;
@@ -65,9 +66,15 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
 
         {/* Indicator Mode */}
         <div>
-          <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1.5">
-            <TrendingUp className="w-3.5 h-3.5 text-blue-500" />
-            <span>Indicateur principal</span>
+          <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 flex items-center justify-between">
+            <span className="flex items-center gap-1.5">
+              <TrendingUp className="w-3.5 h-3.5 text-blue-500" />
+              <span>Indicateur principal</span>
+            </span>
+            <Tooltip
+              title="Sélection de la vue d'analyse"
+              content="Basculez entre le HPI nominal brut, l'inflation HICP, la vue comparée, le HPI Réel corrigé de l'inflation ou la segmentation neufs/existants."
+            />
           </label>
           <select
             value={indicator}
@@ -85,9 +92,15 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
         {/* Base Reference & Dwelling Type */}
         <div className="grid grid-cols-2 gap-2">
           <div>
-            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
-              <SlidersHorizontal className="w-3.5 h-3.5 text-blue-500" />
-              <span>Base 100</span>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 flex items-center justify-between">
+              <span className="flex items-center gap-1">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-blue-500" />
+                <span>Base 100</span>
+              </span>
+              <Tooltip
+                title="Rebasification Dynamique"
+                content="Recalcule instantanément l'indice pour fixer la valeur 100 soit en 2015 (standard Eurostat), en 2010-Q1, ou au début exact de la plage sélectionnée."
+              />
             </label>
             <select
               value={rebaseMode}
@@ -101,9 +114,15 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
-              <Home className="w-3.5 h-3.5 text-blue-500" />
-              <span>Logements</span>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 flex items-center justify-between">
+              <span className="flex items-center gap-1">
+                <Home className="w-3.5 h-3.5 text-blue-500" />
+                <span>Logements</span>
+              </span>
+              <Tooltip
+                title="Type de logement (Purchase)"
+                content="Permet de restreindre l'indice au marché global (TOTAL), aux logements neufs (DW_NEW) ou aux logements anciens (DW_EXST)."
+              />
             </label>
             <select
               value={dwellingType}
