@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.4" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)" />
+  <rect width="508" height="508" x="2" y="2" rx="110" fill="none" stroke="#334155" stroke-width="3" />
+  
+  <!-- Minimalist Grid Lines -->
+  <line x1="80" y1="160" x2="432" y2="160" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6" />
+  <line x1="80" y1="240" x2="432" y2="240" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6" />
+  <line x1="80" y1="320" x2="432" y2="320" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6" />
+  <line x1="80" y1="400" x2="432" y2="400" stroke="#475569" stroke-width="2" />
+  
+  <!-- House silhouette in background -->
+  <path d="M210 240 L256 195 L302 240 V320 H210 Z" fill="#1e3a8a" opacity="0.35" />
+  <path d="M256 185 L315 240 H295 V320 H217 V240 H197 Z" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.4" />
+
+  <!-- Shaded Area Chart -->
+  <path d="M 80 380 L 140 370 L 200 350 L 260 290 L 320 310 L 380 230 L 432 170 L 432 400 L 80 400 Z" fill="url(#chartGrad)" />
+
+  <!-- Inflation reference dotted curve -->
+  <path d="M 80 390 Q 180 360 260 340 T 432 260" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 6" />
+
+  <!-- House Price Index bold line -->
+  <path d="M 80 380 L 140 370 L 200 350 L 260 290 L 320 310 L 380 230 L 432 170" fill="none" stroke="url(#lineGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Data point indicator -->
+  <circle cx="432" cy="170" r="8" fill="#fbbf24" stroke="#0f172a" stroke-width="3" />
+
+  <!-- EU Stars Ring Symbol top left -->
+  <circle cx="120" cy="120" r="16" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="2 6" />
+  <text x="146" y="125" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc" letter-spacing="1">EURO HOUSING</text>
+</svg>
