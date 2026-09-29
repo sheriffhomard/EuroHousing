@@ -4,13 +4,13 @@
  */
 
 import React, { useState } from 'react';
-import { X, ChevronRight, ChevronLeft, Check, Sparkles, Home, Scale, Globe, Wifi } from 'lucide-react';
+import { X, ChevronRight, ChevronLeft, Check, Sparkles, Home, Scale, Globe, Wifi, Map, Activity } from 'lucide-react';
 import { AppLogo } from '../Common/AppLogo';
 
 interface OnboardingModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onNavigateTab?: (tab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology') => void;
+  onNavigateTab?: (tab: 'dashboard' | 'compare' | 'map' | 'cycles' | 'affordability' | 'data' | 'methodology') => void;
 }
 
 export const OnboardingModal: React.FC<OnboardingModalProps> = ({
@@ -58,6 +58,30 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
         'Superposition des séries temporelles avec réticule interactif',
         'Rebasification à la volée : Base 2015=100, Base 2010 ou Début de période',
         'Exportation immédiate des données au format CSV et JSON',
+      ],
+    },
+    {
+      badge: 'Visualisation Géographique',
+      icon: <Map className="w-8 h-8 text-teal-600 dark:text-teal-400" />,
+      title: 'Carte Choroplèthe d’Europe',
+      description:
+        'Visualisez la dynamique immobilière sur une carte interactive : sélection au clic, variations annuelles ou trimestrielles, et animation temporelle (time-lapse).',
+      highlights: [
+        'Nuancier coloré automatique selon la hausse ou la baisse',
+        'Bascule instantanée entre HPI Nominal et HPI Réel (net d’inflation)',
+        'Lecteur animé trimestre par trimestre de 2010 à 2026',
+      ],
+    },
+    {
+      badge: 'Analyse Macroéconomique',
+      icon: <Activity className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />,
+      title: 'Cycles Immobiliers & Drawdowns',
+      description:
+        'Explorez les phases historiques des marchés : détection des pics et creux, calcul des durées d’expansion/contraction, mesure de la baisse maximale et temps de retour au sommet.',
+      highlights: [
+        'Détection automatique des pics et des creux historiques',
+        'Mesure du Max Drawdown (perte maximale depuis le sommet)',
+        'Calcul du temps nécessaire pour retrouver un ancien niveau de prix',
       ],
     },
     {

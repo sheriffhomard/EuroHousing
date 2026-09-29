@@ -12,8 +12,8 @@ import { AppLogo } from '../Common/AppLogo';
 import { SystemUpdateState } from '../../hooks/useSystemUpdate';
 
 interface HeaderProps {
-  activeTab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology';
-  setActiveTab: (tab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology') => void;
+  activeTab: 'dashboard' | 'compare' | 'map' | 'cycles' | 'affordability' | 'data' | 'methodology';
+  setActiveTab: (tab: 'dashboard' | 'compare' | 'map' | 'cycles' | 'affordability' | 'data' | 'methodology') => void;
   isRefreshing: boolean;
   onRefresh: () => void;
   lastUpdated: string;
@@ -75,6 +75,26 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             Comparateur
+          </button>
+          <button
+            onClick={() => setActiveTab('map')}
+            className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              activeTab === 'map'
+                ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            Carte d'Europe
+          </button>
+          <button
+            onClick={() => setActiveTab('cycles')}
+            className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              activeTab === 'cycles'
+                ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            Cycles Immobiliers
           </button>
           <button
             onClick={() => setActiveTab('affordability')}

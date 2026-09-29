@@ -89,14 +89,18 @@ export function useSystemUpdate(onRefreshData?: () => Promise<void>): SystemUpda
       if (!silent) setUpdateStatusMessage('Vérification des mises à jour en cours...');
 
       try {
-        // 1. Service Worker update check
-        if ('serviceWorker' in navigator) {
-          const registration = await navigator.serviceWorker.getRegistration();
-          if (registration) {
-            await registration.update();
-            if (registration.waiting) {
-              registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+        // 1. Service Worker update check (production only, avoiding dev HTML fallback errors)
+        if ('serviceWorker' in navigator && !import.meta.env.DEV) {
+          try {
+            const registration = await navigator.serviceWorker.getRegistration();
+            if (registration) {
+              await registration.update();
+              if (registration.waiting) {
+                registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+              }
             }
+          } catch {
+            // Silently ignore service worker update errors
           }
         }
 
@@ -162,11 +166,15 @@ export function useSystemUpdate(onRefreshData?: () => Promise<void>): SystemUpda
         // ignore
       }
 
-      // 4. Update Service Worker
-      if ('serviceWorker' in navigator) {
-        const registration = await navigator.serviceWorker.getRegistration();
-        if (registration) {
-          await registration.update();
+      // 4. Update Service Worker (production only)
+      if ('serviceWorker' in navigator && !import.meta.env.DEV) {
+        try {
+          const registration = await navigator.serviceWorker.getRegistration();
+          if (registration) {
+            await registration.update();
+          }
+        } catch {
+          // ignore
         }
       }
 

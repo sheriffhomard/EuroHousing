@@ -28,6 +28,8 @@ import {
   ChevronRight,
   TrendingUp,
   Building,
+  Map,
+  Activity,
 } from 'lucide-react';
 import { AppLogo } from '../Common/AppLogo';
 import { useTheme } from '../../hooks/useTheme';
@@ -35,8 +37,8 @@ import { usePWAInstall } from '../../hooks/usePWAInstall';
 import { SystemUpdateState } from '../../hooks/useSystemUpdate';
 
 interface HamburgerMenuProps {
-  activeTab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology';
-  onSelectTab: (tab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology') => void;
+  activeTab: 'dashboard' | 'compare' | 'map' | 'cycles' | 'affordability' | 'data' | 'methodology';
+  onSelectTab: (tab: 'dashboard' | 'compare' | 'map' | 'cycles' | 'affordability' | 'data' | 'methodology') => void;
   onOpenSettings: () => void;
   onOpenOnboarding: () => void;
   onOpenHelp: () => void;
@@ -72,7 +74,7 @@ export const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
     };
   }, [isOpen]);
 
-  const handleNav = (tab: 'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology') => {
+  const handleNav = (tab: 'dashboard' | 'compare' | 'map' | 'cycles' | 'affordability' | 'data' | 'methodology') => {
     onSelectTab(tab);
     setIsOpen(false);
   };
@@ -164,6 +166,36 @@ export const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
               <div className="flex items-center gap-2.5">
                 <Globe className="w-4 h-4 text-indigo-500" />
                 <span>Comparateur Multi-Pays</span>
+              </div>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+
+            <button
+              onClick={() => handleNav('map')}
+              className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                activeTab === 'map'
+                  ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border border-blue-200 dark:border-blue-900/60'
+                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
+            >
+              <div className="flex items-center gap-2.5">
+                <Map className="w-4 h-4 text-teal-500" />
+                <span>Carte Choroplèthe d'Europe</span>
+              </div>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+
+            <button
+              onClick={() => handleNav('cycles')}
+              className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                activeTab === 'cycles'
+                  ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border border-blue-200 dark:border-blue-900/60'
+                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
+            >
+              <div className="flex items-center gap-2.5">
+                <Activity className="w-4 h-4 text-indigo-500" />
+                <span>Cycles Immobiliers & Drawdowns</span>
               </div>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             </button>

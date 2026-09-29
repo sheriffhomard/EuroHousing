@@ -12,6 +12,8 @@ import { ComparePage } from './pages/ComparePage';
 import { DataPage } from './pages/DataPage';
 import { MethodologyPage } from './pages/MethodologyPage';
 import { AffordabilityPage } from './pages/AffordabilityPage';
+import { MapPage } from './pages/MapPage';
+import { CyclesPage } from './pages/CyclesPage';
 import { SystemSettingsModal } from './components/Settings/SystemSettingsModal';
 import { OnboardingModal } from './components/Onboarding/OnboardingModal';
 import { ContextualHelpModal } from './components/Common/ContextualHelpModal';
@@ -20,7 +22,7 @@ import { useSystemUpdate } from './hooks/useSystemUpdate';
 import { AlertCircle, CheckCircle, X, Sparkles } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'compare' | 'affordability' | 'data' | 'methodology'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'compare' | 'map' | 'cycles' | 'affordability' | 'data' | 'methodology'>('dashboard');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
@@ -183,6 +185,41 @@ export default function App() {
             onIndicatorChange={setIndicator}
             rebaseMode={rebaseMode}
             onRebaseModeChange={setRebaseMode}
+          />
+        )}
+
+        {activeTab === 'map' && (
+          <MapPage
+            onNavigateToObservatory={(code) => {
+              setSelectedCountry(code);
+              setActiveTab('dashboard');
+            }}
+            onAddToComparator={(code) => {
+              toggleComparisonCountry(code);
+              setActiveTab('compare');
+            }}
+            onNavigateToAffordability={(code) => {
+              setActiveTab('affordability');
+            }}
+          />
+        )}
+
+        {activeTab === 'cycles' && (
+          <CyclesPage
+            onNavigateToObservatory={(code) => {
+              setSelectedCountry(code);
+              setActiveTab('dashboard');
+            }}
+            onAddToComparator={(code) => {
+              toggleComparisonCountry(code);
+              setActiveTab('compare');
+            }}
+            onNavigateToAffordability={(code) => {
+              setActiveTab('affordability');
+            }}
+            onNavigateToMap={(code) => {
+              setActiveTab('map');
+            }}
           />
         )}
 
