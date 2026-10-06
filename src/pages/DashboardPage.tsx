@@ -79,8 +79,12 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         onRebaseModeChange={onRebaseModeChange}
       />
 
-      {/* KPI Cards Grid */}
-      <StatCardsGrid series={series} />
+      {/* KPI Cards Grid - The 4 Distinct Indicators */}
+      <StatCardsGrid
+        series={series}
+        activeIndicator={indicator}
+        onSelectIndicator={onIndicatorChange}
+      />
 
       {/* Main Interactive Time Series Chart */}
       <MainChart

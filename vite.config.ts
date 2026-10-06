@@ -14,7 +14,7 @@ export default defineConfig(() => {
         includeAssets: ['icon.svg', 'apple-touch-icon.png', 'pwa-192x192.png', 'pwa-512x512.png'],
         manifest: {
           id: '/',
-          name: 'Euro Housing Data',
+          name: 'Euro Housing Data Observatory',
           short_name: 'EuroHousing',
           description: 'Observatoire européen interactif des prix immobiliers (HPI) et de l\'inflation (HICP) basé sur les données officielles Eurostat (2010 - 2026).',
           theme_color: '#0f172a',
@@ -92,6 +92,10 @@ export default defineConfig(() => {
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
+    },
+    preview: {
+      port: 3000,
+      host: '0.0.0.0',
     },
   };
 });

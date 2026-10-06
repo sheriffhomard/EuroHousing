@@ -211,7 +211,7 @@ export const CyclesPage: React.FC<CyclesPageProps> = ({
                     ? 'bg-blue-600 text-white shadow-xs'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
-                title="Prix corrigés de l'inflation (pouvoir d'achat immobilier)"
+                title="Prix immobiliers déflatés par l'inflation générale (IPCH)"
               >
                 HPI Réel
               </button>

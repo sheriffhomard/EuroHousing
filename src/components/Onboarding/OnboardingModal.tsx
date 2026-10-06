@@ -38,14 +38,14 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
     {
       badge: 'Le Concept Clé',
       icon: <Scale className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />,
-      title: 'Le HPI Réel : Corriger l’Inflation',
+      title: 'Le HPI Réel : Évolution Relative à l’Inflation',
       description:
-        "La hausse nominale des prix masque souvent la réalité de la dépréciation monétaire. Le HPI Réel neutralise l'inflation pour révéler le gain ou la perte de pouvoir d'achat net.",
+        "La hausse nominale des prix masque souvent l'inflation générale. Le HPI réel rapporte les prix des logements à l'indice des prix à la consommation (IPCH/HICP) pour mesurer leur évolution relative.",
       formula: 'Real HPI = ( HPI nominal / Inflation HICP ) × 100',
       highlights: [
-        'Indice > 100 : L’immobilier progresse plus vite que l’inflation',
-        'Indice < 100 : Perte de pouvoir d’achat immobilier en valeur réelle',
-        'Agrégation HICP trimestrielle conforme aux règles de la statistique européenne',
+        'Indice > 100 : Les prix des logements progressent plus vite que l’inflation générale',
+        'Indice < 100 : Les prix des logements augmentent moins vite que le panier de consommation',
+        'Ce n’est pas le pouvoir d’achat immobilier des ménages (qui dépend des salaires et des taux de crédit)',
       ],
     },
     {

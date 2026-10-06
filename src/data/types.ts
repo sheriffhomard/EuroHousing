@@ -71,7 +71,14 @@ export interface CountryTimeSeries {
   updatedAt: string;
 }
 
-export type IndicatorMode = 'hpi' | 'hicp' | 'both' | 'real_hpi' | 'dwellings';
+export type IndicatorMode =
+  | 'hpi' // HPI nominal - Évolution des prix immobiliers
+  | 'real_hpi' // HPI réel - Évolution des prix relativement à l'inflation générale
+  | 'yoy' // Variation annuelle - Évolution sur les quatre derniers trimestres
+  | 'cumulative' // Variation cumulée - Évolution depuis une date de référence
+  | 'both' // Vue comparée HPI vs Inflation
+  | 'hicp' // Inflation HICP seule
+  | 'dwellings'; // Neufs vs Existants
 
 export type RebaseMode = '2015' | '2010' | 'period_start';
 
@@ -92,4 +99,39 @@ export interface EurostatFetchState<T> {
   error: string | null;
   lastUpdated: string | null;
   isOffline: boolean;
+}
+
+export type CalculationErrorCode =
+  | 'MISSING_INPUT'
+  | 'ZERO_DENOMINATOR'
+  | 'NEGATIVE_INDEX'
+  | 'PERIOD_MISMATCH'
+  | 'BASE_MISMATCH'
+  | 'NON_FINITE'
+  | 'OUTLIER_WARNING';
+
+export interface CalculationCheckItem {
+  passed: boolean;
+  details: string;
+}
+
+export interface CalculationAuditResult {
+  value: number | null;
+  isValid: boolean;
+  errorCode?: CalculationErrorCode;
+  message: string;
+  stepByStep: {
+    formula: string;
+    substituted: string;
+    rawResult: number | null;
+    roundedResult: number | null;
+    roundingRule: string;
+  };
+  checks: {
+    periodCheck: CalculationCheckItem;
+    baseCheck: CalculationCheckItem;
+    denominatorCheck: CalculationCheckItem;
+    numeratorCheck: CalculationCheckItem;
+    finiteCheck: CalculationCheckItem;
+  };
 }

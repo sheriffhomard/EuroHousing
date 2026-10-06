@@ -69,23 +69,29 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 flex items-center justify-between">
             <span className="flex items-center gap-1.5">
               <TrendingUp className="w-3.5 h-3.5 text-blue-500" />
-              <span>Indicateur principal</span>
+              <span>Indicateur affiché</span>
             </span>
             <Tooltip
-              title="Sélection de la vue d'analyse"
-              content="Basculez entre le HPI nominal brut, l'inflation HICP, la vue comparée, le HPI Réel corrigé de l'inflation ou la segmentation neufs/existants."
+              title="Les 4 indicateurs distincts"
+              content="1. HPI nominal : Évolution des prix immobiliers | 2. HPI réel : Évolution des prix relativement à l'inflation générale | 3. Variation annuelle : Évolution sur 4 trimestres | 4. Variation cumulée : Évolution depuis la date de référence."
             />
           </label>
           <select
             value={indicator}
             onChange={(e) => onIndicatorChange(e.target.value as IndicatorMode)}
-            className="w-full text-xs py-2 px-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-1 focus:ring-blue-500 cursor-pointer"
+            className="w-full text-xs py-2 px-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-1 focus:ring-blue-500 cursor-pointer font-medium"
           >
-            <option value="both">HPI vs Inflation (Vue comparée)</option>
-            <option value="hpi">HPI nominal uniquement</option>
-            <option value="hicp">HICP Inflation uniquement</option>
-            <option value="real_hpi">HPI réel (Corrigé de l'inflation)</option>
-            <option value="dwellings">Neufs vs Existants (Dwellings)</option>
+            <optgroup label="Les 4 indicateurs fondamentaux">
+              <option value="hpi">HPI nominal — Évolution des prix immobiliers</option>
+              <option value="real_hpi">HPI réel — Évolution relative à l'inflation générale</option>
+              <option value="yoy">Variation annuelle — Évolution sur 4 trimestres</option>
+              <option value="cumulative">Variation cumulée — Évolution depuis la date de référence</option>
+            </optgroup>
+            <optgroup label="Vues complémentaires">
+              <option value="both">Vue comparée (HPI vs Inflation)</option>
+              <option value="hicp">HICP — Inflation générale de la consommation</option>
+              <option value="dwellings">Marché Neuf vs Ancien (Dwellings)</option>
+            </optgroup>
           </select>
         </div>
 

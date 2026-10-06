@@ -1,5 +1,5 @@
 {
-  "name": "Euro Housing Data",
+  "name": "Euro Housing Data Observatory",
   "description": "Observatoire européen interactif des prix immobiliers (HPI) et de l'inflation (HICP) basé sur les données officielles Eurostat (2010 - 2026).",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

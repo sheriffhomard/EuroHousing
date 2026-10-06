@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { X, BookOpen, Calculator, Home, ShoppingCart, Scale, Sliders, ArrowRight, Coins, Percent } from 'lucide-react';
+import { X, BookOpen, Calculator, Home, ShoppingCart, Scale, Sliders, ArrowRight, Coins, Percent, Clock } from 'lucide-react';
 
 interface ContextualHelpModalProps {
   isOpen: boolean;
@@ -22,24 +22,31 @@ export const ContextualHelpModal: React.FC<ContextualHelpModalProps> = ({
   const topics = [
     {
       icon: <Home className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
-      title: 'HPI Nominal (House Price Index)',
-      subtitle: 'Dataset Eurostat prc_hpi_q',
+      title: 'HPI nominal',
+      subtitle: 'Ce qu\'il mesure : Évolution des prix immobiliers',
       content:
-        "Mesure l'évolution globale des prix d'acquisition des logements résidentiels (maisons et appartements). Il reflète les prix bruts du marché sans tenir compte de la dépréciation monétaire.",
-    },
-    {
-      icon: <ShoppingCart className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
-      title: 'Inflation HICP (Harmonised Index of Consumer Prices)',
-      subtitle: 'Dataset Eurostat prc_hicp_midx (COICOP CP00)',
-      content:
-        "Indice officiel mesurant le coût d'un panier harmonisé de biens et services de consommation. Pour être comparé au HPI trimestriel, l'indice trimestriel est calculé comme la moyenne arithmétique des 3 mois civils du trimestre.",
+        "Mesure l'évolution globale des prix de transaction des logements résidentiels neufs et anciens acquis par les ménages (dataset Eurostat prc_hpi_q), exprimée en valeur nominale brute sans correction monétaire.",
     },
     {
       icon: <Scale className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-      title: 'HPI Réel (Corrigé de l’Inflation)',
-      subtitle: 'Formule : (HPI nominal / HICP) × 100',
+      title: 'HPI réel',
+      subtitle: 'Ce qu\'il mesure : Évolution des prix relativement à l\'inflation générale',
       content:
-        "Indicateur fondamental : mesure si l'immobilier gagne ou perd de la valeur en termes réels de pouvoir d'achat. Un indice supérieur à 100 (sur la base choisie) indique une surperformance des logements par rapport au coût de la vie général.",
+        "Formule : (HPI nominal / HICP) × 100. Mesure le ratio entre les prix de l'immobilier et l'indice des prix à la consommation. Attention : ce n'est ni une mesure directe du patrimoine net ni du pouvoir d'achat immobilier d'un ménage (qui dépend des taux d'intérêt et des salaires), mais strictement une évolution relative au coût du panier de consommation générale.",
+    },
+    {
+      icon: <Clock className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
+      title: 'Variation annuelle',
+      subtitle: 'Ce qu\'elle mesure : Évolution sur les quatre derniers trimestres',
+      content:
+        "Taux de croissance glissant sur 1 an calculé entre le trimestre courant et le même trimestre de l'année précédente (T vs T-4). Il permet d'éliminer les variations saisonnières et de lire la tendance annuelle de fond.",
+    },
+    {
+      icon: <ShoppingCart className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
+      title: 'Variation cumulée',
+      subtitle: 'Ce qu\'elle mesure : Évolution depuis une date de référence',
+      content:
+        "Pourcentage de hausse ou de baisse totale accumulée entre la période de base choisie (par exemple 2010 ou 2015) et la dernière observation disponible. Permet de mesurer l'effort total de valorisation sur le long terme.",
     },
     {
       icon: <Sliders className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
